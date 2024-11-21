@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste - HEXAPP</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <style>
+        body {
+            font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+        }
+
+        hr {
+            opacity: 1;
+        }
+
+        .mobile_padding {
+            padding: 30px 0px 60px 0px;
+        }
+
+        .panel {
+            margin: auto;
+            width: 90%;
+            padding: 20px 0px;
+        }
+        
+        .lista_padding {
+            padding: 30px;
+        }
+
+        .bg_azul_1 {
+            background: linear-gradient(90deg, #0b3f67 35%, #1384dd 100%);
+            color: white;
+        }
+
+        .bg_azul_2 {
+            background: rgb(35, 104, 158);
+            color: white;
+        }
+
+        .bg_branco {
+            background: rgb(241, 255, 255);
+        }
+
+        .bg_rodape {
+            background: #666666;
+        }
+
+        .navbar-nav .nav-link {
+            padding-right: 30px !important;
+        }
+
+        .btn_texto {
+            color: white;
+            text-decoration: none;
+        }
+
+        .btn_texto:hover {
+            color: white;
+        }
+
+        .btn_verde_nav {
+            background: #008000;
+            color: white;
+            border: 1px solid white;
+            border-radius: 9999px;
+            text-decoration: none;
+            padding-left: 30px !important;
+        }
+
+        .btn_verde_nav:hover {
+            color: white;
+        }
+
+        .btn_verde {
+            background: #008000;
+            color: white;
+            border: 1px solid white;
+            border-radius: 9999px;
+            text-decoration: none;
+            padding: 8px 35px;
+        }
+
+        .btn_azul {
+            background: #23689f;
+            color: white;
+            border-radius: 9999px;
+            text-decoration: none;
+            padding: 8px 35px;
+            max-width: 135px;
+        }
+
+        .btn_branco {
+            background: white;
+            color: rgb(35, 104, 158);
+            border-radius: 9999px;
+            text-decoration: none;
+            padding: 8px 35px;
+            max-width: 135px;
+        }
+
+        .btn_chique {
+            background: white;
+            color: black;
+            border-radius: 3px;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 8px;
+            margin: 5px;
+            max-width: 31%;
+        }
+
+        .btn_chique_icon {
+            background: #27a7da;
+            color: white;
+            border-radius: 9999px;
+            padding: 0px 5px;
+        }
+
+        .txt_titulo_1 {
+            font-size: 31px;
+            padding-top: 15px;
+        }
+
+        .txt_titulo_2 {
+            font-size: 25px;
+            padding-bottom: 15px;
+        }
+
+        .btn_chique_container {
+            display: flex;
+            justify-content: space-between;
+            padding-top: 100px;
+            padding-bottom: 10px;
+        }
+
+        .txt_titulo_azul_1 {
+            color: #20689d;
+            font-size: 25px;
+            padding-top: 15px;
+            font-weight: 500;
+        }
+
+        .txt_titulo_azul_2 {
+            color: rgb(75, 85, 99);
+            font-size: 14px;
+            padding-top: 15px;
+        }
+
+        .txt_titulo_branco_1 {
+            color: white;
+            font-size: 25px;
+            padding-top: 15px;
+            font-weight: 500;
+        }
+
+        .txt_titulo_branco_2 {
+            color: white;
+            font-size: 14px;
+            padding-top: 15px;
+        }
+
+        .txt_copyright {
+            color: white;
+            font-size: 12px;
+            border: 1px solid white;
+        }
+
+        .hexapp {
+            display: none;
+        }
+
+        @media (max-width: 767px) {
+            .hexapp {
+                display: unset;
+            }
+
+            .mobile_center {
+                text-align: center;
+            }
+
+            .mobile_padding {
+                padding: 10px 0px;
+            }
+
+            .mobile_priority {
+                order: -1;
+            }
+
+            h1 {
+                font-size: 22px;
+                font-weight: 700;
+            }
+
+            .mobile_lista {
+                font-size: 12px;
+            }
+
+            .lista_padding {
+                padding: unset;
+                padding-bottom: 30px;
+            }
+
+            .txt_titulo_1 {
+                font-size: 22px;
+            }
+
+            .txt_titulo_2 {
+                font-size: 22px;
+            }
+
+            .txt_titulo_branco_1 {
+                font-size: 20px;
+                padding-top: 60px;
+                padding-bottom: 15px;
+            }
+
+            .btn_chique_container {
+                padding: 15px;
+                padding-top: 25px;
+                padding-bottom: 60px;
+            }
+
+            .btn_chique {
+                max-width: unset;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row bg_azul_1">
+            <div class="panel">
+
+                <nav class="navbar navbar-expand-md" style="background: transparent;">
+                    <div class="container-fluid">
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                            <ul class="navbar-nav">
+                                <li class="nav-item">
+                                    <a class="nav-link btn_texto" href="#">Visão Geral</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link btn_texto" href="#">Planos e Preços</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link btn_texto" href="#">Blog</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link btn_texto" href="#">Acesse</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link btn_verde_nav" href="#">Teste Grátis</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+
+                <div class="row">
+                    <div class="col">
+                        <div class="row">
+                            <span class="txt_titulo_2 mobile_center">Software médico <span class="hexapp"><strong>Hexapp</strong></span></span>
+                        </div>
+
+                        <div class="row">
+                            <h1 class="mobile_center">Sistema para clínicas e consultórios</h1>
+                        </div>
+
+                        <div class="row">
+                            <span class="txt_titulo_1 mobile_center">Mais agilidade, gestão e segurança</span>
+                        </div>
+
+                        <div class="row">
+                            <div class="container mobile_center" style="padding: 20px 10px;">
+                                <a class="btn_verde" href="#">Teste Grátis</a>
+                            </div>
+                        </div>
+
+                        <div class="row btn_chique_container">
+                            <a href="#" class="btn_chique">
+                                <span>Profissional de saúde</span>
+                                <i class="btn_chique_icon">→</i>
+                            </a>
+
+                            <a href="#" class="btn_chique">
+                                <span>Recepcionista</span>
+                                <i class="btn_chique_icon">→</i>
+                            </a>
+
+                            <a href="#" class="btn_chique">
+                                <span>Administrador</span>
+                                <i class="btn_chique_icon">→</i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 d-none d-md-block d-inline-flex">
+                        <img src="img/medica_nobg_cropped.png" style="max-height: 350px;">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="row bg_branco">
+            <div class="panel" style="padding: 30px 0px;">
+            
+                <div class="row" style="justify-content: center">
+                    <img src="img/varias_telas.webp" alt="Apresentação dos graficos, comparação de fotos, agendamento e atendimentos"title="Apresentação dos graficos, comparação de fotos, agendamento e atendimentos" style="max-width: 85%;">
+                </div>
+
+                <div clas="row">
+                    <div class="col-md-4 mx-auto">
+                        <div class="row text-center">
+                            <span class="txt_titulo_azul_1" style="font-size: 30px;">Transforme sua clínica <span class="hexapp">com o Hexapp</span></span>
+                        </div>
+
+                        <div class="row text-center mobile_padding">
+                            <span class="txt_titulo_azul_2">Descubra como nosso software médico por revolucionar a gestão do seu consultório, proporcionando eficiência, segurança e uma experiência excepcional para pacientes e profissionais da saúde</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="row bg_azul_2">
+
+            <div class="panel">
+                <div class="row text-center">
+                    <span class="txt_titulo_branco_1" style="font-weight: unset;">Explore recuros de Hexapp</span>
+                </div>
+
+                <div class="row" style="padding: 60px 20px 40px 20px;">
+
+                    <div class="col" style="align-content: center;">
+                        <div class="row text-center">
+                            <span class="txt_titulo_branco_1">Agendamento</span>
+                        </div>
+                        
+                        <div class="row lista_padding">
+                            <p class="mobile_lista">Agenda integrada ao prontuário</p>
+                            <hr>
+                            <p class="mobile_lista">Agenda integrada ao financeiro</p>
+                            <hr>
+                            <p class="mobile_lista">Chat com o Profissional por Atendimento</p>
+                            <hr>
+                            <p class="mobile_lista">Mapa mensal de ocupação</p>
+                            <hr>
+                            <p class="mobile_lista">Tarefas</p>
+                            <hr>
+                            <p class="mobile_lista">Lembretes</p>
+                            <hr>
+                            <p class="mobile_lista">Diversos tipos de visualização</p>
+                            <hr>
+                            <p class="mobile_lista">Classifque of atendimentos através de Tags</p>
+                            <hr>
+                            <p class="mobile_lista">Confirmação por WhatsApp</p>
+                            <hr>
+                            <p class="mobile_lista">Módulo exclusivo de oportunidades</p>
+                        </div>
+
+                        <div class="row text-center" style="justify-content: center;">
+                            <a class="btn_branco" href="#">
+                                Começar
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mobile_priority">
+                        <img src="img/agendamento_telas.webp" title="Agendamento" alt="agendamento" style="max-width: 100%">
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="row bg_branco">
+            <div class="panel">
+                <div class="row" style="padding: 60px 20px 40px 20px;">
+
+                    <div class="col" style="align-content: center;">
+                        <div class="row text-center">
+                            <span class="txt_titulo_azul_1">Atendimento personalizado</span>
+                        </div>
+                        
+                        <div class="row" style="padding: 30px;">
+                            <p style="text-align: justify;"><span class="txt_titulo_azul_2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Aqui, você terá todas as ferramentas para gerenciar pacientes de forma eficiente e segura. O módulo de atendimento organiza informações, emite documentos médicos rapidamente e permite adicionar formulários específicos. O prontuário é organizado com tags datadas para facilitar o acesso às informações e a galeria de fotos completa a experiência do atendimento médico.</span></p>
+                        </div>
+
+                        <div class="row text-center" style="justify-content: center;">
+                            <a class="btn_azul" href="#">
+                                Começar
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-md-7">
+                        <img src="img/atendimento.webp" title="Agendamento" alt="agendamento" style="max-width: 100%">
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="row bg_azul_2">
+            <div class="panel">
+                <div class="row" style="padding: 60px 20px 40px 20px;">
+
+                    <div class="col-md-7">
+                        <img src="img/agendamento.webp" title="Agendamento" alt="agendamento" style="max-width: 100%">
+                    </div>
+
+                    <div class="col" style="align-content: center;">
+                        <div class="row text-center">
+                            <span class="txt_titulo_branco_1">Agendamento</span>
+                        </div>
+                        
+                        <div class="row" style="padding: 30px;">
+                            <p style="text-align: justify;"><span class="txt_titulo_branco_2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Agora você pode gerenciar agendas, profissionais e salas de atendimento em uma única plataforma. A integração com o WhatsApp reduz faltas e cancelamentos, enquanto as tags de agendamento facilitam a filtragem rápida. O chat com a secretária e o gerenciamento de tarefas garantem que nenhum detalhe seja esquecido. Simplifique sua rotina em um só lugar.</span></p>
+                        </div>
+
+                        <div class="row text-center" style="justify-content: center;">
+                            <a class="btn_branco" href="#">
+                                Começar
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="row bg_rodape txt_copyright" style="padding: 8px 0px">
+            <div class="col text-center">
+                Copyright 2024
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste - HEXAPP</title>
+</head>
+<body onload="Iniciar()">
+    <button onclick="CriarTabelas()">Criar tabelas</button>
+    <button onclick="LimparTabelas()">Limpar tabelas</button>
+    <button onclick="PovoarTabelas()">Povoar tabelas</button>
+    
+    <hr>
+    
+    <h3>Cliente</h3>
+    <input id="nome_cliente" placeholder="Nome">
+    <button onclick="InserirCliente()">Inserir cliente</button>
+
+    <br><br>
+    <table>
+        <thead>
+            <th>ID</th>
+            <th>NOME</th>
+            <th>APAGAR</th>
+        </thead>
+
+        <tbody id="lista_clientes"></tbody>
+    </table>
+    
+    <hr>
+
+    <h3>Contato</h3>
+    <select id="id_cliente">
+        <option selected disabled>Selecione um cliente</option>
+    </select>
+    <input id="contato" placeholder="Contato">
+
+    <button onclick="InserirContato()">Adicionar contato</button>
+
+    <br><br>
+    <table>
+        <thead>
+            <th>ID</th>
+            <th>CLIENTE</th>
+            <th>CONTATO</th>
+            <th>APAGAR</th>
+        </thead>
+
+        <tbody id="lista_contatos"></tbody>
+    </table>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    function Iniciar() {
+        $.ajax({
+            type: 'POST',
+            url: 'backend.php?c=Iniciar',
+            data: {},
+            dataType: 'json',
+            success: function(json){
+                $("#lista_clientes").html(json.dados['clientes']);
+                $("#lista_contatos").html(json.dados['contatos']);
+
+                $('#id_cliente').html(json.dados['options']);
+
+                $('#nome_cliente').val('');
+                $('#id_cliente').val('');
+                $('#contato').val('');
+            },
+            error: function(json){
+                alert(json.alerta);
+            }
+        });
+    }
+
+    function CriarTabelas() {
+        $.ajax({
+            type: 'POST',
+            url: 'backend.php?c=CriarTabelas',
+            data: {},
+            dataType: 'json',
+            success: function(json){
+                if (json.erro == 'N') {
+                    alert("Tabelas criadas");
+                }
+
+                Iniciar();
+            },
+            error: function(json){
+                alert(json.alerta);
+            }
+        });
+    }
+
+    function LimparTabelas() {
+        $.ajax({
+            type: 'POST',
+            url: 'backend.php?c=LimparTabelas',
+            data: {},
+            dataType: 'json',
+            success: function(json){
+                if (json.erro == 'N') {
+                    alert("Tabelas limpas");
+                }
+
+                Iniciar();
+            },
+            error: function(json){
+                alert(json.alerta);
+            }
+        });
+
+        Iniciar();
+    }
+
+    function PovoarTabelas() {
+        $.ajax({
+            type: 'POST',
+            url: 'backend.php?c=PovoarTabelas',
+            data: {},
+            dataType: 'json',
+            success: function(json){
+                if (json.erro == 'N') {
+                    alert("Tabelas povoadas");
+                }
+
+                Iniciar();
+            },
+            error: function(json){
+                alert(json.alerta);
+            }
+        });
+    }
+
+    function InserirCliente() {
+        $.ajax({
+            type: 'POST',
+            url: 'backend.php?c=InserirCliente',
+            data: {
+                nome: $('#nome_cliente').val()
+            },
+            dataType: 'json',
+            success: function(json){
+                if (json.erro == 'N') {
+                    alert("Cliente inserido");
+                }
+
+                Iniciar();
+            },
+            error: function(json){
+                alert(json.alerta);
+            }
+        });
+    }
+
+    function ApagarCliente(id) {
+        $.ajax({
+            type: 'POST',
+            url: 'backend.php?c=ApagarCliente',
+            data: {
+                id: id
+            },
+            dataType: 'json',
+            success: function(json){
+                if (json.erro == 'N') {
+                    alert("Cliente apagado (os contatos do mesmo também foram apagados)");
+                }
+
+                Iniciar();
+            },
+            error: function(json){
+                alert(json.alerta);
+            }
+        });
+    }
+
+    function InserirContato() {
+        $.ajax({
+            type: 'POST',
+            url: 'backend.php?c=InserirContato',
+            data: {
+                id: $('#id_cliente').val(),
+                contato: $('#contato').val()
+            },
+            dataType: 'json',
+            success: function(json){
+                if (json.erro == 'N') {
+                    alert("Contato inserido");
+                }
+
+                Iniciar();
+            },
+            error: function(json){
+                alert(json.alerta);
+            }
+        });
+    }
+
+    function ApagarContato(id) {
+        $.ajax({
+            type: 'POST',
+            url: 'backend.php?c=ApagarContato',
+            data: {
+                id: id
+            },
+            dataType: 'json',
+            success: function(json){
+                if (json.erro == 'N') {
+                    alert("Contato apagado");
+                }
+
+                Iniciar();
+            },
+            error: function(json){
+                alert(json.alerta);
+            }
+        });
+    }
+</script>
+</body>
+</html>
